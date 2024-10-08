@@ -22,7 +22,8 @@ namespace PizzaOven
             var banks = new List<string> (new string[] { "master.bank", "master.strings.bank", "music.bank", "sfx.bank" });
             foreach (var file in Directory.GetFiles($"{Global.config.ModsFolder}{Global.s}sound{Global.s}Desktop", "*", SearchOption.AllDirectories))
                 if (!banks.Contains(Path.GetFileName(file).ToLowerInvariant()))
-                    try {
+                    try
+                    {
                         File.Delete(file);
                     }
                     catch (Exception e)
@@ -40,7 +41,8 @@ namespace PizzaOven
             foreach (var file in Directory.GetFiles($"{Global.config.ModsFolder}", "*", SearchOption.TopDirectoryOnly))
                 if ((Path.GetExtension(file).ToLowerInvariant() == ".dll" && !dlls.Contains(Path.GetFileName(file).ToLowerInvariant()))
                     || Path.GetExtension(file).ToLowerInvariant() == ".mp4")
-                        try {
+                        try
+                        {
                             File.Delete(file);
                         }
                         catch (Exception e)
@@ -53,7 +55,8 @@ namespace PizzaOven
                         }
             // Delete empty folders
             foreach (var directory in Directory.GetDirectories($"{Global.config.ModsFolder}{Global.s}sound{Global.s}Desktop"))
-                    try {
+                    try
+                    {
                         if (Directory.GetFiles(directory).Length == 0 && Directory.GetDirectories(directory).Length == 0)
                             Directory.Delete(directory, false);
                     }
@@ -67,7 +70,8 @@ namespace PizzaOven
                     }
             // Delete .win from older version of Pizza Oven
             if (File.Exists($"{Global.config.ModsFolder}{Global.s}PizzaOven.win"))
-                try {
+                try
+                {
                     File.Delete($"{Global.config.ModsFolder}{Global.s}PizzaOven.win");
                 }
                 catch (Exception e)
